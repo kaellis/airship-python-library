@@ -61,7 +61,8 @@ class Push(object):
         :raises Unauthorized: Authentication failed.
         :raises ValueError: Required keys missing or incorrect values included.
         """
-        if 'email' in self.payload['notification']:
+        
+        if 'notification' in self.payload and 'email' in self.payload['notification']:
             if self.payload['device_types'] == 'all':
                 raise ValueError(
                     'device_types cannot be all when including an email override'
